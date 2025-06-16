@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baraya Catering - Hidangan Istimewa untuk Setiap Momen Anda</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a modern look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Hero section background with eye-catching image placeholder */
+        .hero-background {
+            background-image: url('images/1.png'); /* REPLACE WITH YOUR OWN HIGH-QUALITY IMAGE */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            filter: brightness(0.8); /* Slightly dim the background for text readability */
+        }
+        .hero-content {
+            z-index: 10;
+        }
+
+        /* Gallery image styling */
+        .gallery-item {
+            aspect-ratio: 1 / 1; /* Ensures square images */
+            object-fit: cover;
+        }
+
+        /* Smooth scroll for navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Keyframe for subtle animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Header & Navigation Section -->
+    <header class="bg-white shadow-xl py-4 sticky top-0 z-50 rounded-b-2xl">
+        <nav class="container mx-auto flex justify-between items-center px-4 md:px-8">
+            <!-- Brand Logo/Name -->
+            <a href="#" class="text-3xl font-extrabold text-emerald-700 hover:text-emerald-800 transition duration-300">Baraya Catering</a>
+            
+            <!-- Desktop Navigation Links -->
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#about" class="text-gray-700 hover:text-emerald-600 font-semibold transition duration-300">Tentang Kami</a></li>
+                <li><a href="#services" class="text-gray-700 hover:text-emerald-600 font-semibold transition duration-300">Layanan</a></li>
+                <li><a href="#menu" class="text-gray-700 hover:text-emerald-600 font-semibold transition duration-300">Menu Pilihan</a></li>
+                <li><a href="#pricing" class="text-gray-700 hover:text-emerald-600 font-semibold transition duration-300">Paket Harga</a></li>
+                <li><a href="#how-it-works" class="text-gray-700 hover:text-emerald-600 font-semibold transition duration-300">Cara Kerja</a></li>
+                <li><a href="#gallery" class="text-gray-700 hover:text-emerald-600 font-semibold transition duration-300">Galeri</a></li>
+                <li><a href="#testimonials" class="text-gray-700 hover:text-emerald-600 font-semibold transition duration-300">Testimoni</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-emerald-600 font-semibold transition duration-300">Pesan Sekarang</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none p-2 rounded-md hover:bg-gray-100 transition duration-300">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (initially hidden) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md rounded-b-xl pb-2">
+            <ul class="flex flex-col items-center space-y-3 py-4">
+                <li><a href="#about" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Tentang Kami</a></li>
+                <li><a href="#services" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Layanan</a></li>
+                <li><a href="#menu" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Menu Pilihan</a></li>
+                <li><a href="#pricing" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Paket Harga</a></li>
+                <li><a href="#how-it-works" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Cara Kerja</a></li>
+                <li><a href="#gallery" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Galeri</a></li>
+                <li><a href="#testimonials" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Testimoni</a></li>
+                <li><a href="#contact" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Pesan Sekarang</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section (Home) -->
+    <section class="relative hero-background min-h-screen flex items-center justify-center text-center p-4">
+        <!-- Overlay to make text stand out -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        
+        <div class="hero-content text-white p-8 rounded-2xl max-w-3xl mx-auto backdrop-filter backdrop-blur-sm bg-opacity-30 bg-black border border-gray-600 shadow-2xl">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-5 leading-tight animate-fade-in-down">
+                Baraya Catering
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light animate-fade-in-up">
+                Nikmatnya Hidangan Istimewa untuk Setiap Momen Anda
+            </p>
+            <a href="#contact" class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 px-10 rounded-full transition duration-300 ease-in-out transform hover:scale-105 shadow-xl animate-fade-in-up delay-200">
+                Pesan Sekarang!
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. About Us Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-emerald-50 to-gray-50" id="about">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-10">Tentang <span class="text-emerald-700">Baraya Catering</span></h2>
+            <p class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-gray-700">
+                Baraya Catering hadir untuk menyajikan pengalaman kuliner tak terlupakan di setiap acara Anda. Dengan fokus pada bahan-bahan segar pilihan, resep autentik yang diwariskan, dan pelayanan prima yang ramah, kami berkomitmen untuk menjadikan momen spesial Anda semakin sempurna dan berkesan. Dari hidangan tradisional kaya rasa hingga kreasi modern yang inovatif, kami siap memenuhi setiap kebutuhan rasa dan tema acara Anda dengan penuh dedikasi.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3. Our Services Section -->
+    <section class="py-16 md:py-24 bg-white" id="services">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-14">Layanan Unggulan Kami</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Service Card 1 -->
+                <div class="p-8 border border-emerald-300 rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-emerald-50">
+                    <div class="text-emerald-600 mb-5">
+                        <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-emerald-800 mb-4">Acara Pernikahan Impian</h3>
+                    <p class="text-gray-700 leading-relaxed">Wujudkan pesta pernikahan yang tak terlupakan dengan hidangan istimewa dan presentasi elegan, disesuaikan dengan tema impian Anda.</p>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="p-8 border border-emerald-300 rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-emerald-50">
+                    <div class="text-emerald-600 mb-5">
+                        <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5H4v12h16V6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-emerald-800 mb-4">Event Kantor & Korporat</h3>
+                    <p class="text-gray-700 leading-relaxed">Solusi catering profesional dan higienis untuk rapat, seminar, peluncuran produk, hingga pesta akhir tahun perusahaan Anda.</p>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="p-8 border border-emerald-300 rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 bg-gradient-to-br from-white to-emerald-50">
+                    <div class="text-emerald-600 mb-5">
+                        <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-3xl font-bold text-emerald-800 mb-4">Pesta Sosial & Keluarga</h3>
+                    <p class="text-gray-700 leading-relaxed">Rayakan ulang tahun, arisan, atau kumpul keluarga dengan hidangan lezat yang disukai semua, tanpa repot.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Our Menu Section -->
+    <section class="py-16 md:py-24 bg-emerald-50" id="menu">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-14">Pilihan Menu Terlaris <span class="text-emerald-700">Baraya Catering</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Menu Item 1 -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300 hover:shadow-2xl border border-gray-100">
+                    <img src="https://placehold.co/600x400/C8E6C9/2E7D32?text=Nasi+Tumpeng+Kuning" alt="Nasi Tumpeng Kuning" class="w-full h-64 object-cover object-center rounded-t-xl">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Nasi Tumpeng Kuning Komplit</h3>
+                        <p class="text-gray-600 mb-4">Sajian tumpeng kuning autentik dengan aneka lauk pauk, ideal untuk syukuran dan perayaan penting.</p>
+                        <span class="text-emerald-700 text-2xl font-extrabold">Mulai dari Rp 650.000</span>
+                    </div>
+                </div>
+                <!-- Menu Item 2 -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300 hover:shadow-2xl border border-gray-100">
+                    <img src="https://placehold.co/600x400/C8E6C9/2E7D32?text=Prasmanan+Eksklusif" alt="Paket Prasmanan Premium" class="w-full h-64 object-cover object-center rounded-t-xl">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Paket Prasmanan Premium</h3>
+                        <p class="text-gray-600 mb-4">Pilihan menu prasmanan lengkap dengan variasi hidangan utama, sampingan, dan dessert berkelas.</p>
+                        <span class="text-emerald-700 text-2xl font-extrabold">Mulai dari Rp 85.000/pax</span>
+                    </div>
+                </div>
+                <!-- Menu Item 3 -->
+                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-300 hover:shadow-2xl border border-gray-100">
+                    <img src="https://placehold.co/600x400/C8E6C9/2E7D32?text=Snack+Box+Spesial" alt="Snack Box Aneka Jajanan" class="w-full h-64 object-cover object-center rounded-t-xl">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Snack Box Modern & Tradisional</h3>
+                        <p class="text-gray-600 mb-4">Aneka jajanan pasar dan kue modern dalam kemasan box praktis untuk berbagai keperluan.</p>
+                        <span class="text-emerald-700 text-2xl font-extrabold">Mulai dari Rp 28.000/box</span>
+                    </div>
+                </div>
+            </div>
+            <a href="#contact" class="mt-12 inline-block bg-amber-500 hover:bg-amber-600 text-white font-bold py-3.5 px-10 rounded-full transition duration-300 shadow-xl transform hover:scale-105">
+                Lihat Daftar Menu Lengkap
+            </a>
+        </div>
+    </section>
+
+    <!-- 5. Pricing Packages Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-white to-gray-50" id="pricing">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-14">Pilihan Paket Harga Kami</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Pricing Card 1: Basic -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 hover:border-emerald-500 transition duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Paket Bronze</h3>
+                    <p class="text-5xl font-extrabold text-emerald-600 mb-6">Rp 75<span class="text-2xl">.000</span><span class="text-xl font-normal text-gray-500">/pax</span></p>
+                    <ul class="text-left text-gray-700 mb-8 space-y-3">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>1 Main Course</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>2 Side Dishes</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>1 Dessert</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Min. 50 Pax</li>
+                    </ul>
+                    <a href="#contact" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-8 rounded-full transition duration-300 shadow-lg transform hover:scale-105">Pilih Paket Ini</a>
+                </div>
+                <!-- Pricing Card 2: Advanced (Recommended) -->
+                <div class="bg-white p-8 rounded-2xl shadow-2xl border-2 border-emerald-500 transform scale-105">
+                    <span class="inline-block bg-amber-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">Terpopuler!</span>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Paket Silver</h3>
+                    <p class="text-5xl font-extrabold text-emerald-600 mb-6">Rp 100<span class="text-2xl">.000</span><span class="text-xl font-normal text-gray-500">/pax</span></p>
+                    <ul class="text-left text-gray-700 mb-8 space-y-3">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>2 Main Courses</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>3 Side Dishes</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>2 Desserts</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Min. 80 Pax</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Free Flow Drinks</li>
+                    </ul>
+                    <a href="#contact" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-8 rounded-full transition duration-300 shadow-lg transform hover:scale-105">Pilih Paket Ini</a>
+                </div>
+                <!-- Pricing Card 3: Premium -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border-2 border-gray-200 hover:border-emerald-500 transition duration-300 transform hover:-translate-y-2">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Paket Gold</h3>
+                    <p class="text-5xl font-extrabold text-emerald-600 mb-6">Rp 150<span class="text-2xl">.000</span><span class="text-xl font-normal text-gray-500">/pax</span></p>
+                    <ul class="text-left text-gray-700 mb-8 space-y-3">
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>3 Main Courses</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>4 Side Dishes</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>3 Desserts</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Min. 100 Pax</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Free Flow Drinks + Coffee & Tea</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 text-emerald-500 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Food Tasting</li>
+                    </ul>
+                    <a href="#contact" class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-8 rounded-full transition duration-300 shadow-lg transform hover:scale-105">Pilih Paket Ini</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. How It Works Section -->
+    <section class="py-16 md:py-24 bg-emerald-50" id="how-it-works">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-14">Bagaimana Cara Kerja Kami?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Step 1 -->
+                <div class="p-8 bg-white rounded-2xl shadow-xl border border-gray-100 transform hover:scale-105 transition duration-300">
+                    <div class="flex items-center justify-center w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full mx-auto mb-6 text-4xl font-bold">1</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Konsultasi & Penawaran</h3>
+                    <p class="text-gray-700 leading-relaxed">Hubungi kami untuk mendiskusikan kebutuhan acara Anda. Kami akan memberikan penawaran terbaik sesuai anggaran Anda.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="p-8 bg-white rounded-2xl shadow-xl border border-gray-100 transform hover:scale-105 transition duration-300">
+                    <div class="flex items-center justify-center w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full mx-auto mb-6 text-4xl font-bold">2</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Penyesuaian Menu</h3>
+                    <p class="text-gray-700 leading-relaxed">Pilih dari berbagai pilihan menu kami atau sesuaikan dengan preferensi dan tema acara spesial Anda.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="p-8 bg-white rounded-2xl shadow-xl border border-gray-100 transform hover:scale-105 transition duration-300">
+                    <div class="flex items-center justify-center w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full mx-auto mb-6 text-4xl font-bold">3</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Persiapan & Penyajian</h3>
+                    <p class="text-gray-700 leading-relaxed">Tim profesional kami akan menyiapkan hidangan lezat dan menyajikannya tepat waktu di lokasi acara Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Photo Gallery -->
+    <section class="py-16 md:py-24 bg-white" id="gallery">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-14">Galeri Momen Indah <span class="text-emerald-700">Baraya Catering</span></h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Gallery Item 1 -->
+                <img src="https://placehold.co/400x400/D4EDDA/1A5276?text=Hidangan+1" alt="Galeri Baraya Catering 1" class="w-full h-full gallery-item rounded-xl shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover ring-2 ring-emerald-200">
+                <!-- Gallery Item 2 -->
+                <img src="https://placehold.co/400x400/D4EDDA/1A5276?text=Hidangan+2" alt="Galeri Baraya Catering 2" class="w-full h-full gallery-item rounded-xl shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover ring-2 ring-emerald-200">
+                <!-- Gallery Item 3 -->
+                <img src="https://placehold.co/400x400/D4EDDA/1A5276?text=Hidangan+3" alt="Galeri Baraya Catering 3" class="w-full h-full gallery-item rounded-xl shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover ring-2 ring-emerald-200">
+                <!-- Gallery Item 4 -->
+                <img src="https://placehold.co/400x400/D4EDDA/1A5276?text=Hidangan+4" alt="Galeri Baraya Catering 4" class="w-full h-full gallery-item rounded-xl shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover ring-2 ring-emerald-200">
+                <!-- Gallery Item 5 -->
+                <img src="https://placehold.co/400x400/D4EDDA/1A5276?text=Hidangan+5" alt="Galeri Baraya Catering 5" class="w-full h-full gallery-item rounded-xl shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover ring-2 ring-emerald-200">
+                <!-- Gallery Item 6 -->
+                <img src="https://placehold.co/400x400/D4EDDA/1A5276?text=Hidangan+6" alt="Galeri Baraya Catering 6" class="w-full h-full gallery-item rounded-xl shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover ring-2 ring-emerald-200">
+                <!-- Gallery Item 7 -->
+                <img src="https://placehold.co/400x400/D4EDDA/1A5276?text=Hidangan+7" alt="Galeri Baraya Catering 7" class="w-full h-full gallery-item rounded-xl shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover ring-2 ring-emerald-200">
+                <!-- Gallery Item 8 -->
+                <img src="https://placehold.co/400x400/D4EDDA/1A5276?text=Hidangan+8" alt="Galeri Baraya Catering 8" class="w-full h-full gallery-item rounded-xl shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover ring-2 ring-emerald-200">
+            </div>
+            <a href="#contact" class="mt-12 inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3.5 px-10 rounded-full transition duration-300 shadow-xl transform hover:scale-105">
+                Lihat Lebih Banyak Foto
+            </a>
+        </div>
+    </section>
+
+    <!-- 8. Testimonials Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-br from-gray-100 to-white" id="testimonials">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-14">Apa Kata Para Klien Kami?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Testimonial Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 flex flex-col items-center">
+                    <img src="https://placehold.co/80x80/E0F2F1/00796B?text=A" alt="Avatar Pelanggan A" class="w-20 h-20 rounded-full mb-4 ring-4 ring-emerald-500">
+                    <p class="text-lg italic text-gray-700 mb-5 leading-relaxed">
+                        "Pelayanan Baraya Catering sangat luar biasa! Hidangan yang disajikan bukan hanya lezat, tapi juga ditata dengan sangat indah. Tamu-tamu saya semua memuji. Sangat direkomendasikan!"
+                    </p>
+                    <p class="font-bold text-xl text-emerald-700">- Ibu Siti, Acara Pernikahan</p>
+                </div>
+                <!-- Testimonial Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 flex flex-col items-center">
+                    <img src="https://placehold.co/80x80/E0F2F1/00796B?text=B" alt="Avatar Pelanggan B" class="w-20 h-20 rounded-full mb-4 ring-4 ring-emerald-500">
+                    <p class="text-lg italic text-gray-700 mb-5 leading-relaxed">
+                        "Untuk kebutuhan catering kantor, Baraya Catering selalu menjadi pilihan utama kami. Mereka responsif, tepat waktu, dan makanannya selalu segar. Top Markotop!"
+                    </p>
+                    <p class="font-bold text-xl text-emerald-700">- Bapak Rio, Manajer HR</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Order Form Section -->
+    <section class="py-16 md:py-24 bg-emerald-800 text-white" id="contact">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-14">Pesan Baraya Catering Sekarang!</h2>
+            <p class="text-lg md:text-xl mb-10 max-w-3xl mx-auto font-light">
+                Tertarik dengan hidangan dan layanan istimewa kami? Isi formulir di bawah ini dan kami akan segera menghubungi Anda untuk mendiskusikan kebutuhan catering acara spesial Anda.
+            </p>
+            <form id="orderForm" class="max-w-xl mx-auto bg-white p-8 md:p-10 rounded-3xl shadow-2xl text-gray-800 border-2 border-emerald-500">
+                <div class="mb-6 text-left">
+                    <label for="name" class="block text-gray-700 text-base font-bold mb-2">Nama Lengkap Anda:</label>
+                    <input type="text" id="name" name="name" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 transition duration-200" placeholder="Contoh: Budi Santoso" required>
+                </div>
+                <div class="mb-6 text-left">
+                    <label for="address" class="block text-gray-700 text-base font-bold mb-2">Alamat Lengkap Acara:</label>
+                    <textarea id="address" name="address" rows="4" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 transition duration-200" placeholder="Contoh: Jl. Pahlawan No. 45, Kebayoran Baru, Jakarta Selatan" required></textarea>
+                </div>
+                <div class="mb-8 text-left">
+                    <label for="message" class="block text-gray-700 text-base font-bold mb-2">Pesan / Detail Pesanan Anda:</label>
+                    <textarea id="message" name="message" rows="6" class="shadow-inner appearance-none border border-gray-300 rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-emerald-500 transition duration-200" placeholder="Contoh: Saya ingin memesan paket prasmanan untuk acara ulang tahun ke-17. Perkiraan 150 orang, pada tanggal 10 Juli 2025." required></textarea>
+                </div>
+                <button type="submit" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 px-12 rounded-full transition duration-300 shadow-lg w-full text-xl transform hover:scale-105 active:scale-95">
+                    Kirim Pesanan Via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 rounded-t-xl">
+        <div class="container mx-auto px-4 md:px-8 text-center md:text-left grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <!-- Brand Info & Copyright -->
+            <div class="text-center md:text-left">
+                <h3 class="text-3xl font-extrabold text-emerald-500 mb-2">Baraya Catering</h3>
+                <p class="text-sm text-gray-400">&copy; 2025 Baraya Catering. Semua Hak Dilindungi.</p>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="space-y-4 text-center md:text-left">
+                <h4 class="text-xl font-semibold text-amber-400 mb-2">Hubungi Kami</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center justify-center md:justify-start">
+                        <!-- Phone Icon SVG -->
+                        <svg class="w-5 h-5 mr-3 text-amber-300" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1v3.5c0 .55-.45 1-1 1C12.92 21 3 11.08 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.24.2 2.45.57 3.57.11.35.02.75-.24 1.02l-2.2 2.2z"/></svg>
+                        <a href="tel:+6281234567890" class="text-gray-300 hover:text-amber-300 transition-colors duration-300">+62 812-3456-7890</a>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start">
+                        <!-- WhatsApp Icon SVG -->
+                        <svg class="w-5 h-5 mr-3 text-green-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 21.36a1.057 1.057 0 001.218 1.156l3.528-.934a12.016 12.016 0 006.947 1.932c6.643 0 12.03-5.388 12.03-12.03s-5.388-12.03-12.03-12.03c-6.643 0-12.03 5.388-12.03 12.03 0 2.223.606 4.316 1.66 6.136l-.934 3.528a1.057 1.057 0 001.156 1.218zM12.03 2.617c5.297 0 9.613 4.316 9.613 9.613s-4.316 9.613-9.613 9.613-9.613-4.316-9.613-9.613c0-5.297 4.316-9.613 9.613-9.613zM16.924 15.688c-.143-.238-.857-.619-1.619-.952-.762-.333-1.31-.492-1.857-.492s-.952-.095-1.381.492c-.429.587-.714.492-1.31-.19-.714-.857-1.429-1.905-2.095-2.905-.667-1-.667-1.619-.19-2.095.429-.429 1.048-.714 1.381-.857.333-.143.476-.238.714-.524.238-.286.333-.492.429-.714.095-.238.048-.429-.048-.619-.095-.19-.857-.952-1.167-1.286-.333-.333-.714-.492-1.048-.492s-.667.048-1.095.429c-.429.381-1.619 1.571-1.619 3.81s1.667 4.429 1.905 4.762.381.476.714.952 1.095 1.571 2.19 2.048 1.476.381 2.667.19 2.048-1.286 2.333-2.048.286-1.429.19-1.619z"/>
+                        </svg>
+                        <a href="https://wa.me/6289637103742" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors duration-300">089637103742</a>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start">
+                        <!-- Email Icon SVG -->
+                        <svg class="w-5 h-5 mr-3 text-amber-300" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        <a href="mailto:info@barayacatering.com" class="text-gray-300 hover:text-amber-300 transition-colors duration-300">info@barayacatering.com</a>
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start">
+                        <!-- Instagram Icon SVG -->
+                        <svg class="w-5 h-5 mr-3 text-pink-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.8 2h8.4C18.18 2 20 3.82 20 6.2v8.4c0 2.38-1.82 4.2-4.2 4.2H7.8C5.42 19 3.6 17.18 3.6 14.8V6.2C3.6 3.82 5.42 2 7.8 2zm-.8 2c-.99 0-1.8.81-1.8 1.8v8.4c0 .99.81 1.8 1.8 1.8h8.4c.99 0 1.8-.81 1.8-1.8V6.2c0-.99-.81-1.8-1.8-1.8H7zm4.2 3.6c-2.2 0-3.96 1.76-3.96 3.96s1.76 3.96 3.96 3.96 3.96-1.76 3.96-3.96-1.76-3.96-3.96-3.96zm0 1.8c1.22 0 2.2 1.08 2.2 2.2s-.98 2.2-2.2 2.2-2.2-1.08-2.2-2.2.98-2.2 2.2-2.2zm4.7-.58c0 .66-.54 1.2-1.2 1.2s-1.2-.54-1.2-1.2.54-1.2 1.2-1.2 1.2.54 1.2 1.2z"/></svg>
+                        <a href="https://instagram.com/BarayaCatering" target="_blank" class="text-gray-300 hover:text-pink-400 transition-colors duration-300">@BarayaCatering</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Placeholder for other footer content like Quick Links or Address Map -->
+            <div class="space-y-4 text-center md:text-left">
+                <h4 class="text-xl font-semibold text-amber-400 mb-2">Jelajahi Cepat</h4>
+                <ul class="space-y-3 text-gray-300">
+                    <li><a href="#about" class="hover:text-amber-300 transition-colors duration-300">Tentang Kami</a></li>
+                    <li><a href="#menu" class="hover:text-amber-300 transition-colors duration-300">Menu Kami</a></li>
+                    <li><a href="#pricing" class="hover:text-amber-300 transition-colors duration-300">Paket Harga</a></li>
+                    <li><a href="#gallery" class="hover:text-amber-300 transition-colors duration-300">Galeri</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // JavaScript for WhatsApp Redirection
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const message = document.getElementById('message').value;
+            const phoneNumber = '6289637103742'; // WhatsApp number without '+'
+
+            // Construct the WhatsApp message
+            const whatsappMessage = 
+                `Halo Baraya Catering,\n\nSaya ingin memesan catering untuk acara saya.\n\n` +
+                `*Nama:* ${name}\n` +
+                `*Alamat Acara:* ${address}\n\n` +
+                `*Detail Pesanan:*\n${message}\n\n` +
+                `Mohon informasinya lebih lanjut. Terima kasih!`;
+
+            // Encode the message for URL
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+            // Open WhatsApp link in a new tab
+            window.open(whatsappUrl, '_blank'); 
+        });
+    </script>
+</body>
+</html>
