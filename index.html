@@ -15,7 +15,8 @@
 
         /* Hero section background with eye-catching image placeholder */
         .hero-background {
-            background-image: url('images/1.png'); /* REPLACE WITH YOUR OWN HIGH-QUALITY IMAGE */
+            /* Replace with your own high-quality image URL */
+            background-image: url('images/1.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed; /* Parallax effect */
@@ -128,8 +129,8 @@
     <!-- Header & Navigation Section -->
     <header class="bg-white shadow-xl py-4 sticky top-0 z-50 rounded-b-2xl">
         <nav class="container mx-auto flex justify-between items-center px-4 md:px-8">
-            <!-- Brand Logo/Name -->
-            <a href="#" class="text-3xl font-extrabold text-emerald-700 hover:text-emerald-800 transition duration-300">Baraya Catering</a>
+            <!-- Brand Logo/Name - Adjusted font size here -->
+            <a href="#" class="text-2xl md:text-3xl font-extrabold text-emerald-700 hover:text-emerald-800 transition duration-300">Baraya Catering</a>
             
             
             <!-- Desktop Navigation Links -->
@@ -162,6 +163,7 @@
                 <li><a href="#how-it-works" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Cara Kerja</a></li>
                 <li><a href="#gallery" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Galeri</a></li>
                 <li><a href="#testimonials" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Testimoni</a></li>
+                <li><a href="#maps" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Lokasi</a></li>
                 <li><a href="#contact" class="block py-2 text-gray-700 hover:text-emerald-600 transition duration-300 font-medium">Pesan Sekarang</a></li>
             </ul>
         </div>
@@ -173,7 +175,8 @@
         <div class="absolute inset-0 bg-black opacity-50"></div>
         
         <div class="hero-content text-white p-8 rounded-2xl max-w-3xl mx-auto backdrop-filter backdrop-blur-sm bg-opacity-30 bg-black border border-gray-600 shadow-2xl">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-5 leading-tight animate-fade-in-down">
+            <!-- Adjusted font size for hero heading -->
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-5 leading-tight animate-fade-in-down">
                 Baraya Catering
             </h1>
             <p class="text-xl md:text-2xl mb-8 font-light animate-fade-in-up">
@@ -439,6 +442,21 @@
                     <p class="font-bold text-xl text-emerald-700">- Bapak Rio, Manajer HR</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- NEW Section: Lokasi Kami (Maps) -->
+    <section class="py-16 md:py-24 bg-emerald-50" id="maps">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-14">Temukan Kami di Peta! <span class="text-emerald-700">Lokasi Baraya Catering</span></h2>
+            <div class="relative overflow-hidden rounded-3xl shadow-2xl mx-auto max-w-4xl" style="padding-top: 56.25%;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.565796616249!2d106.90516217360309!3d-6.3206213936688185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ede76ed80ddd%3A0x7825697dec807e15!2sBARAYA%20CATERING!5e0!3m2!1sid!2sid!4v1750238616569!5m2!1sid!2sid"
+                        class="absolute top-0 left-0 w-full h-full"
+                        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="text-center text-gray-700 mt-8 text-lg max-w-2xl mx-auto">
+                Kunjungi dapur kami atau rencanakan rute pengiriman acara Anda. Kami siap melayani di lokasi ini!
+            </p>
         </div>
     </section>
 
